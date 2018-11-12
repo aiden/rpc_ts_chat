@@ -25,7 +25,26 @@ describe('rpc_ts_chat', () => {
       beforeEach(async () => {
         server = await startServer();
         console.log('Server started');
-        browser = await puppeteer.launch();
+        browser = await puppeteer.launch({
+          args: [
+            '--disable-dev-shm-usage',
+            '--no-sandbox',
+            '--disable-background-networking',
+            '--disable-default-apps',
+            '--disable-extensions',
+            '--disable-sync',
+            '--disable-translate',
+            '--headless',
+            '--hide-scrollbars',
+            '--metrics-recording-only',
+            '--mute-audio',
+            '--no-first-run',
+            '--safebrowsing-disable-auto-update',
+            '--ignore-certificate-errors',
+            '--ignore-ssl-errors',
+            '--ignore-certificate-errors-spki-list',
+          ],
+        });
         console.log('Browser launched');
         page = await browser.newPage();
         console.log('New page opened');
