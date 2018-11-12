@@ -20,6 +20,8 @@ describe('rpc_ts_chat', () => {
       let browser: puppeteer.Browser;
       let page: puppeteer.Page;
 
+      this.timeout(20000);
+
       beforeEach(async () => {
         server = await startServer();
         browser = await puppeteer.launch();
