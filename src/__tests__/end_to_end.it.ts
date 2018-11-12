@@ -16,8 +16,6 @@ import { ChatPage } from './chat_page';
 describe('rpc_ts_chat', () => {
   describe('end-to-end', () => {
     describe('headless browser tests', function() {
-      this.timeout(50000);
-
       let server: http.Server;
       let browser: puppeteer.Browser;
       let page: puppeteer.Page;
@@ -48,8 +46,7 @@ describe('rpc_ts_chat', () => {
         console.log('Browser launched');
         page = await browser.newPage();
         console.log('New page opened');
-        //page.goto(getPageUrl(server));
-        page.goto('https://www.google.com');
+        page.goto(getPageUrl(server));
       });
 
       afterEach(async () => {
@@ -99,6 +96,6 @@ describe('rpc_ts_chat', () => {
   });
 });
 
-// function getPageUrl(server: http.Server) {
-//   return `http://localhost:${server.address().port}`;
-// }
+function getPageUrl(server: http.Server) {
+  return `http://localhost:${server.address().port}`;
+}
