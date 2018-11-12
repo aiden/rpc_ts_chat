@@ -1,0 +1,14 @@
+{
+  "name": "rpc_ts_chat",
+  "description": "Real-time chat room example using rpc_ts",
+  "repository": "https://github.com/aiden/rpc_ts_chat",
+  "keywords": [
+    "node",
+    "typescript",
+    "RPC",
+    "API",
+    "isomorphic",
+    "gRPC-Web",
+    "real-time"
+  ]
+}

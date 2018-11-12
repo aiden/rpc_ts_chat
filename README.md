@@ -6,6 +6,9 @@ This is an example of how to use [rpc_ts](https://github.com/aiden/rpc_ts) and [
 
 [![Chat room](docs/rpc_ts_chat_demo.gif)](https://github.com/aiden/rpc_ts_chat)
 
+The app is available here: https://rpc-ts-chat.herokuapp.com/. You can deploy your own:\
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## Usage
 
 ```bash
@@ -22,4 +25,4 @@ yarn web
 
 ## License
 
-`rpc_ts_chat` is licensed under the MIT License.
+rpc_ts_chat is licensed under the MIT License.
