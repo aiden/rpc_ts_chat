@@ -5,9 +5,9 @@
   "repository": "git@github.com:aiden/rpc_ts_chat.git",
   "author": "Dashbot Ltd",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "dependencies": {
-    "rpc_ts": "^1.1.0",
+    "rpc_ts": "^1.1.3",
     "btreejs": "^0.3.0",
     "chance": "^1.0.16",
     "compression": "^1.0.3",

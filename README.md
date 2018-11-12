@@ -4,7 +4,7 @@
 
 This is an example of how to use [rpc_ts](https://github.com/aiden/rpc_ts) and [Redux](https://redux.js.org/) to build real-time apps. It is also a set of best practices.
 
-[![Chat room](docs/rpc_ts_chat-demo.gif)](https://github.com/aiden/rpc_ts_chat)
+[![Chat room](docs/rpc_ts_chat_demo.gif)](https://github.com/aiden/rpc_ts_chat)
 
 ## Usage
 

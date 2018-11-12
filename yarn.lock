@@ -5533,10 +5533,10 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-rpc_ts@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/rpc_ts/-/rpc_ts-1.1.0.tgz#4f226e3a582613850709cbf126a77e3b5c7be027"
-  integrity sha512-tCx54nXhw2dyTkozVeccS0OBQqUpXBdJR08WJ5d4b0FSszydltrchcP64d5BiIipv91raYTu4zl3uN6XpUjYhw==
+rpc_ts@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/rpc_ts/-/rpc_ts-1.1.3.tgz#46ce0dfd7956fc488fd0349ad1e91d063037723c"
+  integrity sha512-BMS6ugTUYb3KQNzx5SfCXWFwj8Uibi2cCAtjPGsH7iKQQeHCYAIpATukoUyZt9QRTeR0HeRsW8+J7qDUV136ww==
   dependencies:
     compression "^1.0.3"
     express "^4.16.3"
