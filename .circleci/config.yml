@@ -12,9 +12,6 @@ jobs:
       - checkout
       - run: yarn
       - run: yarn all
-      - persist_to_workspace:
-          root: '~/repo'
-          paths: '.'
 
 workflows:
   version: 2
