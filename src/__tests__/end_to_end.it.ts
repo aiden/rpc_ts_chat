@@ -16,7 +16,7 @@ import { ChatPage } from './chat_page';
 describe('rpc_ts_chat', () => {
   describe('end-to-end', () => {
     describe('headless browser tests', function() {
-      this.timeout(20000);
+      this.timeout(50000);
 
       let server: http.Server;
       let browser: puppeteer.Browser;
