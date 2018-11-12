@@ -7,7 +7,7 @@
  */
 import { ChatService } from './service';
 import { MessageStore } from './message_store';
-import { ModuleRpcServer } from 'ts-rpc/lib/server';
+import { ModuleRpcServer } from 'rpc_ts/lib/server';
 import * as Rx from 'rxjs';
 
 export type ChatHandler = ModuleRpcServer.ServiceHandlerFor<ChatService>;

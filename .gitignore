@@ -1,3 +1,4 @@
 /node_modules
 /src/client/public/chat/index.js
 .DS_Store
+*.log

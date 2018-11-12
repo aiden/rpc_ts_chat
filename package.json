@@ -1,13 +1,13 @@
 {
-  "name": "ts-rpc-chat",
+  "name": "rpc_ts_chat",
   "version": "1.0.0",
-  "description": "Real-time chat room example using ts-rpc",
-  "repository": "git@github.com:aiden/ts-rpc-chat.git",
+  "description": "Real-time chat room example using rpc_ts",
+  "repository": "git@github.com:aiden/rpc_ts_chat.git",
   "author": "Dashbot Ltd",
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "ts-rpc": "file:../ts-rpc",
+    "rpc_ts": "^1.1.0",
     "btreejs": "^0.3.0",
     "chance": "^1.0.16",
     "compression": "^1.0.3",
@@ -24,7 +24,11 @@
     "react-dom": "^16.3.0",
     "react-redux": "5.0.5",
     "redux-thunk": "^2.3.0",
-    "screenfull": "^3.3.3"
+    "screenfull": "^3.3.3",
+    "ts-node": "^4",
+    "typescript": "3.1.6",
+    "tsconfig-paths": "3.7.0",
+    "rxjs": "^6.3.2"
   },
   "devDependencies": {
     "@babel/polyfill": "^7.0.0",
@@ -40,7 +44,6 @@
     "@types/react-redux": "^6.0.3",
     "@types/sinon": "^2.3.7",
     "@types/webpack-dev-server": "^3.1.1",
-    "autoprefixer": "^8.3.0",
     "chai": "3.5.0",
     "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
@@ -53,22 +56,17 @@
     "postcss-loader": "^2.1.4",
     "prettier": "^1.13.7",
     "rimraf": "^2.6.2",
-    "rxjs": "^6.3.2",
     "sass-loader": "^7.0.3",
     "sinon": "^4.0.1",
     "style-loader": "^0.20.3",
     "terser-webpack-plugin": "^1.1.0",
     "ts-loader": "^4.1.0",
-    "ts-node": "^4",
-    "tsconfig-paths": "3.7.0",
     "tsconfig-paths-webpack-plugin": "^3.2.0",
     "tslint": "^5.9.1",
     "tslint-config-prettier": "^1.13.0",
     "tslint-config-standard": "^7.0.0",
     "tslint-language-service": "^0.9.8",
     "tslint-no-circular-imports": "^0.6.1",
-    "type-zoo": "^1.2.1",
-    "typescript": "3.1.6",
     "url-loader": "^1.0.1",
     "webpack": "^4.4.1",
     "webpack-cli": "^3.1.0",
@@ -85,13 +83,13 @@
     "web": "webpack-dev-server --config webpack.config",
     "web:build": "webpack-cli -p --config webpack.config",
     "back": "ts-node -r tsconfig-paths/register ./src/server",
-    "doc": "echo 'SKIPPED'"
+    "doc": "echo 'SKIPPED'",
+    "heroku-postbuild": "yarn web:build"
   },
   "lint-staged": {
     "{./*,typescript/**/*}.{js,jsx,ts,tsx,css,scss,md,json}": "prettier -l",
     "*.{ts,tsx}": "tslint -c tslint.json"
   },
-  "npmName": "ts-rpc-chat",
   "sideEffects": false,
   "keywords": [
     "typescript",
@@ -99,5 +97,8 @@
     "API",
     "isomorphic",
     "gRPC-Web"
-  ]
+  ],
+  "engines": {
+    "node": "8.11.3"
+  }
 }

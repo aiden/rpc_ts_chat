@@ -8,14 +8,14 @@
 import * as React from 'react';
 import { createStore, ReduxStore } from '../store';
 import { chatServiceDefinition } from '../../services/chat/service';
-import { ModuleRpcContextClient } from 'ts-rpc/lib/context/client';
+import { ModuleRpcContextClient } from 'rpc_ts/lib/context/client';
 import { Provider } from 'react-redux';
 import { ChatWindow } from './ChatWindow';
 import {
   subscribeToNewMessages,
   sendOptimisticMessages,
 } from '../actions';
-import { ModuleRpcProtocolClient } from 'ts-rpc/lib/protocol/client';
+import { ModuleRpcProtocolClient } from 'rpc_ts/lib/protocol/client';
 
 export type Props = {};
 

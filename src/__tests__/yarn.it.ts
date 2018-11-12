@@ -9,9 +9,9 @@ import * as child_process from 'child_process';
 import * as path from 'path';
 import * as pathIsInside from 'path-is-inside';
 
-describe('ts-rpc-chat', () => {
+describe('rpc_ts_chat', () => {
   describe('yarn commands run properly', () => {
-    it('"yarn back" spins off the backend server @ossOnly', async () => {
+    it('"yarn back" spins off the backend server', async () => {
       await yarnServer(['back'], /Listening on port/);
     }).timeout(5000);
 

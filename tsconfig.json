@@ -36,10 +36,10 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "ts-rpc-chat/*": [
+      "rpc_ts_chat/*": [
         "./*"
       ],
-      "ts-rpc-chat": [
+      "rpc_ts_chat": [
         "./"
       ]
     }

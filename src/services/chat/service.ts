@@ -5,7 +5,7 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { ModuleRpcCommon } from 'ts-rpc/lib/common';
+import { ModuleRpcCommon } from 'rpc_ts/lib/common';
 
 export type ChatService = typeof chatServiceDefinition;
 

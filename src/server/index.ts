@@ -9,11 +9,11 @@ import * as express from 'express';
 import * as http from 'http';
 import { chatServiceDefinition } from '../services/chat/service';
 import { getChatHandler } from '../services/chat/handler';
-import { ModuleRpcContextServer } from 'ts-rpc/lib/context/server';
+import { ModuleRpcContextServer } from 'rpc_ts/lib/context/server';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as compression from 'compression';
-import { ModuleRpcProtocolServer } from 'ts-rpc/lib/protocol/server';
+import { ModuleRpcProtocolServer } from 'rpc_ts/lib/protocol/server';
 
 /**
  * Start the backend server.
