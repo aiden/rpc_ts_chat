@@ -1,0 +1,165 @@
+/**
+ * @license
+ * Copyright (c) Aiden.ai
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+$messageComposerHeight: 60px;
+$statusBannerHeight: 40px;
+$primaryColor: #0271f3;
+$errorColor: rgb(255, 49, 49);
+$disabledPrimaryColor: lighten($primaryColor, 20%);
+$borderColor: black;
+$borderRadius: 4px;
+$smallSpacing: 5px;
+$mediumSpacing: $smallSpacing * 2;
+$largeSpacing: $smallSpacing * 4;
+
+@import 'loader';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue',
+    Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-weight: 300;
+  background-color: #ecf5ff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='152' height='152' viewBox='0 0 152 152'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='temple' fill='%23cce4ff' fill-opacity='0.4'%3E%3Cpath d='M152 150v2H0v-2h28v-8H8v-20H0v-2h8V80h42v20h20v42H30v8h90v-8H80v-42h20V80h42v40h8V30h-8v40h-42V50H80V8h40V0h2v8h20v20h8V0h2v150zm-2 0v-28h-8v20h-20v8h28zM82 30v18h18V30H82zm20 18h20v20h18V30h-20V10H82v18h20v20zm0 2v18h18V50h-18zm20-22h18V10h-18v18zm-54 92v-18H50v18h18zm-20-18H28V82H10v38h20v20h38v-18H48v-20zm0-2V82H30v18h18zm-20 22H10v18h18v-18zm54 0v18h38v-20h20V82h-18v20h-20v20H82zm18-20H82v18h18v-18zm2-2h18V82h-18v18zm20 40v-18h18v18h-18zM30 0h-2v8H8v20H0v2h8v40h42V50h20V8H30V0zm20 48h18V30H50v18zm18-20H48v20H28v20H10V30h20V10h38v18zM30 50h18v18H30V50zm-2-40H10v18h18V10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+input {
+  font-size: 100%;
+}
+
+.StatusBanner {
+  box-sizing: border-box;
+  color: white;
+  width: 100vw;
+  height: $statusBannerHeight;
+  padding: $mediumSpacing;
+
+  &.Error {
+    background: rgba($errorColor, 0.5);
+  }
+  &.Ok {
+    background: rgba($primaryColor, 0.5);
+  }
+
+  .ErrorText {
+    float: right;
+  }
+
+  .Spinner {
+    zoom: 40%;
+    vertical-align: middle;
+    padding-left: $largeSpacing;
+  }
+
+  .Close {
+    padding: $smallSpacing;
+    color: inherit;
+    font-size: 250%;
+  }
+}
+
+.FullScreen {
+  position: fixed;
+  margin-top: -40px;
+  width: 100%;
+  display: flex;
+
+  button {
+    box-sizing: border-box;
+    border-radius: $borderRadius;
+    background: rgb(75, 158, 253);
+    border: 0;
+    padding: $mediumSpacing;
+    height: $statusBannerHeight;
+    margin: auto;
+    font-size: 80%;
+    background: #808080a6;
+    color: white;
+  }
+}
+
+.ChatWindow {
+  height: 100vh;
+  width: 100%;
+}
+
+.ChatHistory {
+  width: 100%;
+  height: calc(100vh - #{$messageComposerHeight + $statusBannerHeight});
+  overflow-y: scroll;
+}
+
+.ChatMessage {
+  background: white;
+  margin: $largeSpacing;
+  border: 1px solid $borderColor;
+  border-radius: $borderRadius;
+  padding: $mediumSpacing;
+
+  .Text {
+    display: block;
+  }
+
+  .Date {
+    margin-top: $mediumSpacing;
+    display: block;
+    text-align: right;
+    font-style: italic;
+    font-size: 80%;
+    color: rgb(77, 77, 77);
+  }
+
+  .DateText {
+    display: inline-block;
+  }
+
+  .Status {
+    display: inline;
+    margin-left: $smallSpacing;
+
+    &.optimistic {
+      color: rgb(160, 160, 160);
+    }
+
+    &.optimisticReceived {
+      color: rgb(21, 214, 21);
+    }
+
+    &.received {
+      visibility: hidden;
+    }
+  }
+}
+
+.MessageComposer {
+  //background: white;
+  box-sizing: border-box;
+  height: $messageComposerHeight;
+  width: 100%;
+  display: flex;
+  padding: $smallSpacing;
+  //border-top: 1px solid $borderColor;
+
+  .NewMessage {
+    width: 100%;
+    border: 1px solid $borderColor;
+    border-radius: $borderRadius;
+  }
+
+  .Send {
+    margin-left: $smallSpacing;
+    border: 1px solid $borderColor;
+    background: $primaryColor;
+    color: white;
+    border-radius: $borderRadius;
+
+    &:disabled {
+      background: $disabledPrimaryColor;
+    }
+  }
+}

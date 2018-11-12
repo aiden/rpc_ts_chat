@@ -1,0 +1,55 @@
+{
+  "version": "3.1.6",
+  "compilerOptions": {
+    "outDir": "./build",
+    "rootDir": ".",
+    "target": "es2017",
+    "alwaysStrict": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "pretty": true,
+    "plugins": [
+      {
+        "name": "tslint-language-service"
+      }
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules"
+    ],
+    "types": [
+      "node",
+      "mocha"
+    ],
+    "lib": [
+      "es7",
+      "es2017",
+      "dom"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "jsx": "react",
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "paths": {
+      "ts-rpc-chat/*": [
+        "./*"
+      ],
+      "ts-rpc-chat": [
+        "./"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "./node_modules"
+  ],
+  "compileOnSave": true,
+  "watch": true
+}
