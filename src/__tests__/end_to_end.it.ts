@@ -80,6 +80,6 @@ describe('rpc_ts_chat', () => {
   });
 });
 
-function getPageUrl(server: http.Server) {
-  return `http://localhost:${server.address().port}`;
-}
+// function getPageUrl(server: http.Server) {
+//   return `http://localhost:${server.address().port}`;
+// }
