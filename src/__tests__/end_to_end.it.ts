@@ -15,12 +15,12 @@ import { ChatPage } from './chat_page';
 
 describe('rpc_ts_chat', () => {
   describe('end-to-end', () => {
-    describe('headless browser tests', () => {
+    describe('headless browser tests', function() {
+      this.timeout(20000);
+
       let server: http.Server;
       let browser: puppeteer.Browser;
       let page: puppeteer.Page;
-
-      this.timeout(20000);
 
       beforeEach(async () => {
         server = await startServer();
