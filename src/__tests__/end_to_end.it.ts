@@ -24,9 +24,13 @@ describe('rpc_ts_chat', () => {
 
       beforeEach(async () => {
         server = await startServer();
+        console.log('Server started');
         browser = await puppeteer.launch();
+        console.log('Browser launched');
         page = await browser.newPage();
-        page.goto(getPageUrl(server));
+        console.log('New page opened');
+        //page.goto(getPageUrl(server));
+        page.goto('https://www.google.com');
       });
 
       afterEach(async () => {
