@@ -15,3 +15,12 @@ jobs:
       - persist_to_workspace:
           root: '~/repo'
           paths: '.'
+
+workflows:
+  version: 2
+  test-deploy:
+    jobs:
+      - test:
+          filters:
+            tags:
+              only: /^v.*/
