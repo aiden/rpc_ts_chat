@@ -23,7 +23,7 @@ export const chatServiceDefinition = {
   subscribeToNewMessages: {
     type: ModuleRpcCommon.ServiceMethodType.serverStream,
     request: {} as {
-      afterDate: string;
+      afterDate?: string;
     },
     response: {} as {
       messages: Message[];

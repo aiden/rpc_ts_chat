@@ -13,19 +13,9 @@
         "name": "tslint-language-service"
       }
     ],
-    "typeRoots": [
-      "./node_modules/@types",
-      "./node_modules"
-    ],
-    "types": [
-      "node",
-      "mocha"
-    ],
-    "lib": [
-      "es7",
-      "es2017",
-      "dom"
-    ],
+    "typeRoots": ["./node_modules/@types", "./node_modules"],
+    "types": ["node", "mocha"],
+    "lib": ["es7", "es2017", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
     "experimentalDecorators": true,
@@ -34,22 +24,15 @@
     "noUnusedParameters": true,
     "jsx": "react",
     "strictNullChecks": true,
+    "noImplicitAny": true,
     "baseUrl": ".",
     "paths": {
-      "rpc_ts_chat/*": [
-        "./*"
-      ],
-      "rpc_ts_chat": [
-        "./"
-      ]
+      "rpc_ts_chat/*": ["./*"],
+      "rpc_ts_chat": ["./"]
     }
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "./node_modules"
-  ],
+  "include": ["src/**/*"],
+  "exclude": ["./node_modules"],
   "compileOnSave": true,
   "watch": true
 }

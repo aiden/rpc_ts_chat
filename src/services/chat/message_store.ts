@@ -31,7 +31,7 @@ export class MessageStore {
       this.messages.walkDesc(
         afterDate && new Date(afterDate).getTime(),
         beforeDate && new Date(beforeDate).getTime(),
-        (_timestamp, message) => {
+        (_timestamp: number, message: Message) => {
           messages.push(message);
           return limit && messages.length >= limit;
         },

@@ -9,5 +9,5 @@ import { ModuleRpcClient } from 'rpc_ts/lib/client';
 import { ChatService } from '../services/chat/service';
 
 export type ThunkExtraArgument = {
-  chat: ModuleRpcClient.NiceService<ChatService>;
+  chat: ModuleRpcClient.ServiceMethodMap<ChatService>;
 };

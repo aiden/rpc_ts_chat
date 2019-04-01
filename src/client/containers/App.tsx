@@ -7,15 +7,17 @@
  */
 import * as React from 'react';
 import { createStore, ReduxStore } from '../store';
-import { chatServiceDefinition } from '../../services/chat/service';
+import {
+  chatServiceDefinition,
+  ChatService,
+} from '../../services/chat/service';
 import { ModuleRpcContextClient } from 'rpc_ts/lib/context/client';
 import { Provider } from 'react-redux';
 import { ChatWindow } from './ChatWindow';
-import {
-  subscribeToNewMessages,
-  sendOptimisticMessages,
-} from '../actions';
+import { subscribeToNewMessages, sendOptimisticMessages } from '../actions';
 import { ModuleRpcProtocolClient } from 'rpc_ts/lib/protocol/client';
+import { serviceInstance } from 'rpc_ts/lib/client/service';
+import { ModuleRpcCommon } from 'rpc_ts/lib/common';
 
 export type Props = {};
 
@@ -26,10 +28,12 @@ export class App extends React.Component<Props> {
     super(props);
 
     this.store = createStore({
-      chat: ModuleRpcProtocolClient.getRpcClient(chatServiceDefinition, {
-        remoteAddress: '/chat/api',
-        clientContextConnector: new ModuleRpcContextClient.EmptyClientContextConnector(),
-      })
+      chat: serviceInstance(
+        ModuleRpcProtocolClient.getRpcClient(chatServiceDefinition, {
+          remoteAddress: '/chat/api',
+          clientContextConnector: new ModuleRpcContextClient.EmptyClientContextConnector(),
+        }),
+      )
         .withRetry()
         .on('serviceReady', (_method, _request) => {
           this.store.dispatch({
@@ -48,23 +52,31 @@ export class App extends React.Component<Props> {
             },
           });
           if (method === 'sendMessage' && retries === 0) {
+            const sendMessageRequest = request as ModuleRpcCommon.RequestFor<
+              ChatService,
+              'sendMessage'
+            >;
             localStorage.setItem(
               'optimisticMessages',
               JSON.stringify({
                 ...JSON.parse(
                   localStorage.getItem('optimisticMessages') || '{}',
                 ),
-                [request.id]: request,
+                [sendMessageRequest.id]: request,
               }),
             );
           }
         })
         .on('serviceComplete', (method, request) => {
           if (method === 'sendMessage') {
+            const sendMessageRequest = request as ModuleRpcCommon.RequestFor<
+              ChatService,
+              'sendMessage'
+            >;
             const optimisticMessages = JSON.parse(
               localStorage.getItem('optimisticMessages') || '{}',
             );
-            delete optimisticMessages[request.id];
+            delete optimisticMessages[sendMessageRequest.id];
             localStorage.setItem(
               'optimisticMessages',
               JSON.stringify(optimisticMessages),
@@ -72,7 +84,7 @@ export class App extends React.Component<Props> {
           }
         })
         .service()
-        .nice(),
+        .methodMap(),
     });
   }
 

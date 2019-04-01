@@ -7,7 +7,7 @@
  */
 import * as child_process from 'child_process';
 import * as path from 'path';
-import * as pathIsInside from 'path-is-inside';
+import pathIsInside = require('path-is-inside');
 
 describe('rpc_ts_chat', () => {
   describe('yarn commands run properly', () => {
@@ -53,7 +53,7 @@ async function yarnServer(
       reject(new Error(`exited before ready with exit code: ${code}`));
     });
 
-    function processData(data) {
+    function processData(data: Buffer | string) {
       const str = data.toString();
       console.log(str);
       if (expectedText.test(str)) {

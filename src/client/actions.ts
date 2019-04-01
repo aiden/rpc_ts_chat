@@ -44,9 +44,10 @@ export const subscribeToNewMessages = (): ReduxThunk => async (
 ) => {
   chat
     .subscribeToNewMessages(() => {
-      const messageIds = getState().messageIds;
+      const { messages, messageIds } = getState();
       return {
-        afterDate: messageIds[messageIds[0]],
+        afterDate:
+          messageIds.length > 0 ? messages[messageIds[0]].createdAt : undefined,
       };
     })
     .on('message', ({ messages }) => {

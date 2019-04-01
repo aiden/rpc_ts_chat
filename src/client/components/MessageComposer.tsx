@@ -15,11 +15,13 @@ export type Props = {
 };
 
 export class MessageComposer extends React.Component<Props> {
-  private handleNewMessageChange = e => {
+  private handleNewMessageChange: React.ChangeEventHandler<
+    HTMLInputElement
+  > = e => {
     this.props.setNewMessage(e.target.value);
   };
 
-  private handleSend = async e => {
+  private handleSend: React.FormEventHandler<HTMLFormElement> = async e => {
     e.preventDefault();
     setTimeout(() => this.props.setNewMessage(''));
     await this.props.sendNewMessage(this.props.newMessage);
